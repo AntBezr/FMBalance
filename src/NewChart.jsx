@@ -11,40 +11,48 @@ function NewChart() {
     datasets: [
       {
         data: Mdata.map(i=>i.amount),
-        backgroundColor: "hsl(10, 79%, 65%)"
+        backgroundColor: "hsl(10, 79%, 65%)",
+        borderRadius: 10,
       }
-    ]
+    ],
+    plugins: {
+      legend: {
+          display: false,
+      }
+    }
   };
 
   const options = {
     responsive: false,
+    plugins:{
+      legend:{
+        display: false,
+      }
+    },
     scales: {
-      xAxes: [
-        {
-          gridLines: {
-            display: false,
-            drawBorder: false,
-
+      x: {
+          beginAtZero: true,
+          grid:{
+            display:false,
           },
-          categoryPercentage: 0.7,
-          barPercentage: 0.9,
-          ticks: {
-            beginAtZero: false
+          border:{
+            display:false
           }
         }
-      ],
-      yAxes: [
-        {
-          display: false,
-          gridLines: {
-            display: false,
-            zeroLineColor: "transparent"
-          },
-          ticks: {
-            beginAtZero: false
-          }
+      ,
+      y: {
+        grid: {
+          drawBorder:false,
+          display:false
+        },
+        ticks: {
+          display: false
+        },
+        border:{
+          display:false
         }
-      ]
+       
+      }
     }
   };
 
@@ -57,7 +65,7 @@ function NewChart() {
 
   return (
     <div className='container'>
-      <Bar width="1000" height="200" data={data} options={options} />
+      <Bar width="1000" height="150" data={data} options={options} />
     </div>
   );
 }
