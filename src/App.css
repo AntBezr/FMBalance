@@ -109,6 +109,9 @@ h2 {
 
 .tables {
   height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
